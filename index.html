@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Serviços de Manicure</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffcccb; /* Cor de fundo rosa */
+            color: #333; /* Cor do texto */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para o banner com a logo */
+        .banner {
+            background-color: #ff69b4; /* Cor de fundo rosa forte */
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 100px; /* Altere o tamanho da logo conforme necessário */
+            height: 100px; /* Altere o tamanho da logo conforme necessário */
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Estilos para o container dos serviços */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .service {
+            background-color: #ffebcd; /* Cor de fundo rosa claro */
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #333; /* Cor do texto */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            margin: 20px;
+        }
+
+        .service img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .service h3 {
+            margin: 10px 0;
+            color: #ff69b4; /* Cor de texto rosa forte */
+        }
+
+        .service p {
+            margin: 5px 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #ff69b4; /* Cor de botão rosa forte */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button-cancel {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Estilos para a caixa de agendamento (inicialmente oculta) */
+        #booking-form {
+            display: none;
+            background-color: #ffebcd; /* Cor de fundo rosa claro */
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #333; /* Cor do texto */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #booking-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #booking-form input, #booking-form select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button-container-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-form {
+            background-color: #ff69b4; /* Cor de botão rosa forte */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px; /* Aumenta a margem entre os botões */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Banner com Logo -->
+    <div class="banner">
+        <img class="logo" src="logo.png" alt="Logo do Salão">
+    </div>
+
+    <h1>Menu de Serviços de Manicure</h1>
+
+    <!-- Container para os serviços -->
+    <div class="container">
+        <!-- Serviço 1 -->
+        <div class="service">
+            <img src="manicure simples.jpg" alt="Serviço 1">
+            <h3>Manicure Simples</h3>
+            <p>Preço: R$ 30,00</p>
+            <div class="button-container">
+                <button class="button" onclick="showBookingForm('Manicure Simples', 30)">Agendar Serviço</button>
+            </div>
+        </div>
+
+        <!-- Adicione mais serviços de manicure aqui... -->
+        
+        <!-- Serviço 2 -->
+        <div class="service">
+            <img src="manicure e pedicure.jpg" alt="Serviço 2">
+            <h3>Manicure e Pedicure</h3>
+            <p>Preço: R$ 50,00</p>
+            <div class="button-container">
+                <button class="button" onclick="showBookingForm('Manicure e Pedicure', 50)">Agendar Serviço</button>
+            </div>
+        </div>
+
+        <!-- Serviço 3 -->
+        <div class="service">
+            <img src="unhas decoradas.jpg" alt="Serviço 3">
+            <h3>Unhas Decoradas</h3>
+            <p>Preço: R$ 40,00</p>
+            <div class="button-container">
+                <button class="button" onclick="showBookingForm('Unhas Decoradas', 40)">Agendar Serviço</button>
+            </div>
+        </div>
+
+        <!-- Serviço 4 -->
+        <div class="service">
+            <img src="alongamento.jpg" alt="Serviço 4">
+            <h3>Alongamento de Unhas</h3>
+            <p>Preço: R$ 60,00</p>
+            <div class="button-container">
+                <button class="button" onclick="showBookingForm('Alongamento de Unhas', 60)">Agendar Serviço</button>
+            </div>
+        </div>
+
+        <!-- Serviço 5 -->
+        <div class="service">
+            <img src="spa.jpg" alt="Serviço 5">
+            <h3>Spa de Mãos</h3>
+            <p>Preço: R$ 45,00</p>
+            <div class="button-container">
+                <button class="button" onclick="showBookingForm('Spa de Mãos', 45)">Agendar Serviço</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Caixa de Agendamento (inicialmente oculta) -->
+    <div id="booking-form">
+        <h2>Agendar Serviço de Manicure</h2>
+        <form>
+            <label for="customer-name">Nome do Cliente:</label>
+            <input type="text" id="customer-name" required><br>
+
+            <label for="appointment-date">Data do Agendamento:</label>
+            <input type="date" id="appointment-date" required><br>
+
+            <label for="appointment-time">Horário do Agendamento:</label>
+            <input type="time" id="appointment-time" required><br>
+
+            <input type="hidden" id="selected-service">
+            <input type="hidden" id="selected-preco">
+
+            <div class="button-container-form">
+                <button class="button-form" onclick="finalizeBooking()">Finalizar</button>
+                <button class="button-form button-cancel" onclick="hideBookingForm()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Função para exibir a caixa de agendamento com os detalhes do serviço selecionado
+        function showBookingForm(serviceName, servicePrice) {
+            const bookingForm = document.getElementById("booking-form");
+            const customerNameInput = document.getElementById("customer-name");
+
+            customerNameInput.value = ""; // Limpa o campo do nome do cliente
+
+            // Preenche o nome do serviço e preço nos campos ocultos
+            document.getElementById("selected-service").value = serviceName;
+            document.getElementById("selected-preco").value = servicePrice;
+
+            bookingForm.style.display = "block";
+        }
+
+        // Função para esconder a caixa de agendamento
+        function hideBookingForm() {
+            const bookingForm = document.getElementById("booking-form");
+            bookingForm.style.display = "none";
+        }
+
+        // Função para finalizar o agendamento e gerar mensagem pré-preenchida no WhatsApp
+        function finalizeBooking() {
+            const customerName = document.getElementById("customer-name").value;
+            const appointmentDate = document.getElementById("appointment-date").value;
+            const appointmentTime = document.getElementById("appointment-time").value;
+            const serviceName = document.getElementById("selected-service").value;
+            const servicePrice = document.getElementById("selected-preco").value;
+
+            // Construir a mensagem pré-preenchida do WhatsApp com os detalhes do agendamento
+            let whatsappMessage = `Olá, gostaria de agendar o seguinte serviço de manicure:\n\n`;
+            whatsappMessage += `Cliente: ${customerName}\n`;
+            whatsappMessage += `Serviço: ${serviceName}\n`; // Inserido o nome do serviço
+            whatsappMessage += `Preço: R$ ${servicePrice}\n`; // Inserido o preço do serviço
+            whatsappMessage += `Data do Agendamento: ${appointmentDate}\n`;
+            whatsappMessage += `Horário do Agendamento: ${appointmentTime}\n`;
+
+            // Substituir quebras de linha por "%0A" para a URL do WhatsApp
+            whatsappMessage = encodeURIComponent(whatsappMessage);
+
+            // URL do WhatsApp com a mensagem pré-preenchida
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=19996564968&text=${whatsappMessage}`;
+
+            // Redirecionar para o WhatsApp
+            window.open(whatsappUrl, "_blank"); // Abre em uma nova guia/janela
+        }
+    </script>
+</body>
+</html>
+
